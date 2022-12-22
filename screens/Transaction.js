@@ -74,7 +74,7 @@ export default class TransactionScreen extends Component {
       .then(doc => {
         console.log(doc.data())
         var book = doc.data();
-        if (book.is_book_avaliable) {
+        if (book.is_book_available) {
           var {bookName, studentName} = this.state;
           this.initiateBookIssue(bookId,studentId,bookName, studentName);
           Alert.alert("Livro entregue para o aluno!");
@@ -130,7 +130,7 @@ export default class TransactionScreen extends Component {
     db.collection("books")
       .doc(bookId)
       .update({
-        is_book_avaliable: false
+        is_book_available: false
       });
     //alterar o número de livros retirados pelo aluno
     db.collection("students")
@@ -161,7 +161,7 @@ export default class TransactionScreen extends Component {
     db.collection("books")
       .doc(bookId)
       .update({
-        is_book_avaliable: true
+        is_book_available: true
       });
     //alterar o número de livros retirados pelo aluno
     db.collection("students")
